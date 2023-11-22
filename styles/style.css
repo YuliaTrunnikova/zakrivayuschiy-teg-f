@@ -70,9 +70,6 @@
   text-transform: uppercase;
 }
 
-.theme-menu__item {
-}
-
 .theme-menu__item:first-of-type {
   margin-top: 5px;
 }
