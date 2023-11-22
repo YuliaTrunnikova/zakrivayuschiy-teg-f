@@ -1,0 +1,27 @@
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+  --mainFont: 'Inter-Variable';
+  --mainFontWeight: 400;
+  --mainFontWeightBold: 700;
+  --accentFont: 'PressStart2P';
+  --backgroundColor: #fff;
+  --accentColor: #000;
+  --backgroundGradient: repeating-linear-gradient(
+    to bottom,
+    #d3d3d3 0 2px,
+    transparent 2px 4px
+  );
+  --backgroundGradient2: repeating-linear-gradient(
+    to right,
+    #d3d3d3 0 2px,
+    transparent 2px 4px
+  );
+  --backgroundGradient3: linear-gradient(to bottom, #e7e7e7 0.1%, #1a1a1a);
+  --textLabelShadow: #fff;
+  --buttonTextColor: var(--backgroundColor, #fff);
+  --heartContour: var(--accentColor);
+  --sparksColor: #f00;
+  --heartLikedColor: #f00;
+  --floppyColor: var(--accentColor, #fff);
+}

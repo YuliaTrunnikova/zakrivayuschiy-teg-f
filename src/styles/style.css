@@ -1,0 +1,452 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+
+.page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px 0;
+  font-family: var(--mainFont), sans-serif;
+  font-variation-settings: 'wght' var(--mainFontWeight);
+  background-color: var(--backgroundColor);
+  color: var(--accentColor);
+  background-image: var(--backgroundGradient), var(--backgroundGradient2),
+    var(--backgroundGradient3);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.header {
+  display: flex;
+  font-family: var(--accentFont);
+  padding-bottom: 100px;
+}
+
+.theme-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  gap: 20px;
+  background-color: var(--backgroundColor);
+  border: 2px solid var(--accentColor);
+  padding-top: clamp(7.5rem, 6.3318rem + 4.9844vw, 8.5rem);
+  padding-right: clamp(0.875rem, -1.458rem + 9.953vw, 7.5rem);
+  padding-left: clamp(0.875rem, -1.458rem + 9.953vw, 7.5rem);
+  padding-bottom: 25px;
+  max-width: 696px;
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
+}
+
+.header__title_second {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.theme-menu__item {
+}
+
+.theme-menu__item:first-of-type {
+  margin-top: 5px;
+}
+
+.theme-menu__button {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  margin-inline-start: 12px;
+  transition: opacity ease 0.3s;
+}
+
+.theme-menu__button::after {
+  position: absolute;
+  content: '';
+  inset-block-end: -2px;
+  inset-inline-start: 0;
+  block-size: 2px;
+  background-color: currentColor;
+  inline-size: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform ease 0.3s;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled {
+  position: relative;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  color: currentColor;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+.content {
+  display: flex;
+  gap: 50px;
+}
+
+.content__list {
+  max-width: 696px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.list__card_item {
+  border: 2px solid var(--accentColor);
+  background-color: var(--backgroundColor);
+}
+
+.card__header {
+  font-variation-settings: 'wght' var(--mainFontWeightBold);
+  font-size: 18px;
+  line-height: 22px;
+  padding: 6px 10px;
+}
+
+.card__image_container {
+  position: relative;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.text_label {
+  font-family: var(--accentFont);
+  font-size: 14px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  color: var(--accentColor);
+  text-shadow: 2px 2px 2px var(--textLabelShadow);
+}
+
+.card__article {
+  display: grid;
+  gap: 27px;
+  padding: 25px;
+}
+
+.buttons__section {
+  display: flex;
+  justify-content: end;
+  padding: 0 25px 25px;
+  gap: 12px;
+}
+
+.card__like-button {
+  background-color: var(--backgroundColor);
+  border: 2px solid var(--accentColor);
+  font-family: var(--accentFont);
+  font-size: 14px;
+  line-height: 0.9;
+  cursor: pointer;
+  transition: box-shadow ease 0.3s;
+  padding: 12px 17px;
+  max-inline-size: 130px;
+  inline-size: 100%;
+  position: relative;
+}
+
+.button__text {
+  color: var(--buttonTextColor, #fff);
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.card__like-button::after {
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  block-size: 100%;
+  inline-size: 100%;
+  position: absolute;
+  background-color: var(--accentColor);
+  content: '';
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform ease 0.3s;
+}
+
+.card__like-button:hover::after {
+  transform: scaleX(1);
+}
+
+.card__like-button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--accentColor);
+}
+
+.card__icon-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color ease 0.3s;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accentColor);
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.contour {
+  transition: fill 0.3s ease 0.06s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heartLikedColor);
+  transition: ease 0.1s;
+}
+
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s ease;
+}
+
+.like-icon:hover .core {
+  fill: var(--heartContour);
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heartLikedColor);
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s ease 0.05s;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--heartContour);
+}
+
+.like-icon:active .core {
+  fill: var(--sparksColor);
+  transition: fill 0.3s ease;
+}
+
+.like-icon:active .main-body {
+  fill: var(--sparksColor);
+  transition: fill 0.3s ease 0.05s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heartLikedColor);
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: bigHeart 0.3s ease 0.1s alternate;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparksOpacity 0.3s ease-in 0.3s alternate;
+}
+
+.footer {
+  padding-top: 50px;
+}
+
+.save__button {
+  padding: 15px 20px;
+  background-color: var(--backgroundColor);
+  border: 2px solid var(--accentColor);
+  font-family: var(--accentFont);
+  font-size: 14px;
+  cursor: pointer;
+  transition: box-shadow ease 0.3s;
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  position: relative;
+}
+
+.save__button::after {
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  block-size: 100%;
+  inline-size: 100%;
+  position: absolute;
+  background-color: var(--accentColor);
+  content: '';
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform ease 0.3s;
+}
+
+.save__button:hover::after {
+  transform: scaleX(1);
+}
+
+.floppy {
+  position: relative;
+  z-index: 10;
+  inline-size: 21px;
+  mix-blend-mode: difference;
+}
+
+.popup[open] {
+  border: 2px solid var(--accentColor);
+  padding: 30px;
+  background-color: var(--backgroundColor);
+  display: grid;
+  gap: 30px 20px;
+  grid-template-columns: auto 1fr;
+  max-inline-size: 357px;
+}
+
+.popup__close {
+  grid-column: span 2;
+}
+
+.popup__floppy {
+  inline-size: 39px;
+}
+
+.popup__text {
+  font-family: var(--accentFont);
+  color: var(--accentColor);
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.popup__button {
+  padding: 9px 12px;
+  inline-size: 100%;
+  background-color: var(--backgroundColor);
+  border: 2px solid var(--accentColor);
+  font-family: var(--accentFont);
+  font-size: 14px;
+  cursor: pointer;
+  transition: box-shadow ease 0.3s;
+  position: relative;
+}
+
+.popup__button::after {
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  block-size: 100%;
+  inline-size: 100%;
+  position: absolute;
+  background-color: var(--accentColor);
+  content: '';
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform ease 0.3s;
+}
+
+.popup__button:hover::after {
+  transform: scaleX(1);
+}
+
+.popup::backdrop {
+  opacity: 0.75;
+  background-color: #000;
+}
+
+@media (width <= 375px) {
+  
+  .save__button {
+    flex-direction: column;
+  }
+
+  .floppy {
+    inline-size: 28px;
+  }
+
+  .popup {
+    padding: 30px 40px;
+  }
+}
+
+.filter__hue {
+  filter: hue-rotate(-90deg);
+}
+
+.filter__saturate {
+  filter: saturate(120%);
+}
+
+.filter__brightness {
+  filter: brightness(70%);
+}
+
+.filter__invert {
+  filter: invert(10%);
+}
+
+.filter__sepia {
+  filter: sepia(30%);
+}
+
+.filter__grayscale {
+  filter: grayscale(40%);
+}
+
+.filter__blur {
+  filter: blur(1px) brightness(120%);
+}
+
+.filter__contrast {
+  filter: contrast(110%);
+}
