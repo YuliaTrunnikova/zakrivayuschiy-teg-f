@@ -23,5 +23,5 @@
   --heartContour: var(--accentColor);
   --sparksColor: #f00;
   --heartLikedColor: #f00;
-  --floppyColor: var(--accentColor, #fff);
+  --floppyColor: var(--accentColor);
 }
