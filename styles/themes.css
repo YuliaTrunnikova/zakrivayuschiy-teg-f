@@ -58,7 +58,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
   :root {
     --mainFont: 'Inter-Variable';
     --mainFontWeight: 460;

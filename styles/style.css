@@ -139,6 +139,7 @@
 }
 
 .list__card_item {
+  position: relative;
   border: 2px solid var(--accentColor);
   background-color: var(--backgroundColor);
 }
@@ -163,7 +164,7 @@
   font-size: 14px;
   text-transform: uppercase;
   position: absolute;
-  top: 25px;
+  top: 60px;
   right: 25px;
   mix-blend-mode: hard-light;
   opacity: 0.5;
@@ -171,14 +172,15 @@
   text-shadow: 2px 2px 2px var(--textLabelShadow);
 }
 
-@supports(text-stroke:  1px var(--textLabelShadow)) or (-webkit-text-stroke: 1px var(--textLabelShadow)) {
-
+@supports (text-stroke: 1px var(--textLabelShadow)) or
+  (-webkit-text-stroke: 1px var(--textLabelShadow)) {
+    
   .text_label {
     -webkit-text-stroke: 1px var(--textLabelShadow);
     text-stroke: 1px var(--textLabelShadow);
     text-shadow: none;
-}
   }
+}
 
 .card__article {
   display: grid;
@@ -428,7 +430,6 @@
 }
 
 @media (width <= 375px) {
-  
   .save__button {
     flex-direction: column;
   }
