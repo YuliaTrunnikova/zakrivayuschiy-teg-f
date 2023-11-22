@@ -28,7 +28,7 @@
   --heartContour: var(--accentColor);
   --sparksColor: #f00;
   --heartLikedColor: #f00;
-  --floppyColor: var(--accentColor);
+  --floppyColor: var(--backgroundColor);
 }
 
 :root.theme-dark {

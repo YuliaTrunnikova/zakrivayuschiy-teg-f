@@ -376,7 +376,6 @@
 
 .dialog__floppy {
   inline-size: 39px;
-  fill: var(--floppyColor);
 }
 
 .dialog__text {
