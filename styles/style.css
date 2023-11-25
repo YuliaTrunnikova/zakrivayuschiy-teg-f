@@ -34,7 +34,7 @@
   display: flex;
   justify-content: center;
   inline-size: 100%;
-  font-family: var(--accentFont), monospace;
+  font-family: var(--accentFont), fantasy;
   padding-bottom: 100px;
 }
 
@@ -203,7 +203,7 @@
 .button {
   background-color: var(--backgroundColor);
   border: 2px solid var(--accentColor);
-  font-family: var(--accentFont), monospace;
+  font-family: var(--accentFont), fantasy;
   font-size: 14px;
   line-height: 0.9;
   cursor: pointer;
@@ -299,7 +299,7 @@
 }
 
 .dialog__text {
-  font-family: var(--accentFont), monospace;
+  font-family: var(--accentFont), fantasy;
   color: var(--accentColor);
   font-size: 16px;
   text-transform: uppercase;
